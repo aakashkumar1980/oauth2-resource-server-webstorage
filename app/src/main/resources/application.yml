@@ -1,0 +1,27 @@
+server:
+  #port: 8080 
+  servlet.context-path: /app
+
+spring:
+  jackson.property-naming-strategy: SNAKE_CASE
+  mvc.dispatch-options-request: true
+  ## Vault Configuration ##
+  application:
+    name: springboot_template
+  cloud:
+    vault:
+      kv:
+        enabled: true
+      authentication: APPROLE
+      app-role:
+        role-id: 705ae535-6c43-67fe-1fa8-9c80130ab7b1
+        secret-id: ad73c2ac-1097-31b9-c82d-557c97fc313f     
+      scheme: http
+      host: 127.0.0.1
+      port: 9200
+  config:
+    import: vault://
+
+logging.config: classpath:logging/log4j2.xml  
+
+
