@@ -54,6 +54,7 @@ dependencies {
 
     // Apache Commons
     implementation 'org.apache.commons:commons-lang3'
+    implementation 'commons-io:commons-io:2.11.0'
 
     // SPRING: Testing
     testImplementation('org.springframework.boot:spring-boot-starter-test') {

@@ -14,8 +14,8 @@ spring:
         enabled: true
       authentication: APPROLE
       app-role:
-        role-id: 705ae535-6c43-67fe-1fa8-9c80130ab7b1
-        secret-id: ad73c2ac-1097-31b9-c82d-557c97fc313f     
+        role-id: fcbfc5c8-18b9-d5f8-9c8d-a981113e3c12
+        secret-id: fed828a1-b1be-b6fe-6a69-64ce4301d887     
       scheme: http
       host: 127.0.0.1
       port: 9200
