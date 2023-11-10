@@ -41,6 +41,9 @@ dependencies {
     /** SECURITY **/
     // spring cloud: vault
     implementation 'org.springframework.cloud:spring-cloud-starter-vault-config'
+    // OAuth 2.0
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 
     /** TOOLS **/
     // Jackson for Java-JSON conversion

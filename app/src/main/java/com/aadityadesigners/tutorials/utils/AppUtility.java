@@ -3,7 +3,6 @@ package com.aadityadesigners.tutorials.utils;
 import org.apache.logging.log4j.Logger;
 import org.springframework.web.client.RestTemplate;
 
-import com.aadityadesigners.tutorials.common.exceptions.ExceptionConstants;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -19,7 +18,7 @@ public class AppUtility {
 		try {
 			host = InetAddress.getLocalHost().getHostName();
 		} catch (Exception e) {
-			LOGGER.error(ExceptionConstants.TECHNICAL_EXCEPTION + ": Error fetching hostname.");
+			LOGGER.error("Error fetching hostname.");
 			throw e;
 		}
 

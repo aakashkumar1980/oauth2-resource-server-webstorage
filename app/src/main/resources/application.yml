@@ -1,11 +1,13 @@
 server:
   #port: 8080 
   servlet.context-path: /app
+logging.config: classpath:log4j2.xml   
 
 spring:
   jackson.property-naming-strategy: SNAKE_CASE
   mvc.dispatch-options-request: true
-  ## Vault Configuration ##
+  
+  ## VAULT CONFIGURATION ##
   application:
     name: springboot_template
   cloud:
@@ -13,15 +15,15 @@ spring:
       kv:
         enabled: true
       authentication: APPROLE
+      ## Get the value from "apps-configs/environment_setup-dev/docker-compose-up.sh"
       app-role:
-        role-id: fcbfc5c8-18b9-d5f8-9c8d-a981113e3c12
-        secret-id: fed828a1-b1be-b6fe-6a69-64ce4301d887     
+        role-id: ${VAULT_ROLE_ID}
+        secret-id: ${VAULT_SECRET_ID}    
       scheme: http
       host: 127.0.0.1
       port: 9200
   config:
     import: vault://
-
-logging.config: classpath:logging/log4j2.xml  
+ 
 
 

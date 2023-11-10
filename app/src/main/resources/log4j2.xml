@@ -97,7 +97,17 @@
 			<AppenderRef ref="Console" />
 		</AsyncLogger>
 		
-		
+		<!-- ################################ -->
+		<!-- ### SPRING SECURITY + OAuth2 ### -->
+		<!-- ################################ -->		
+		<Logger name="org.springframework.security" level="TRACE" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Logger name="com.nimbusds" level="TRACE" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>				
+	
+
 		<!-- ################### -->
 		<!-- ### APPLICATION ### -->
 		<!-- ################### -->							

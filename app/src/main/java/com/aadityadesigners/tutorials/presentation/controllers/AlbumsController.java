@@ -19,23 +19,34 @@ import org.apache.commons.io.IOUtils;
 @RequestMapping("/api/albums")
 public class AlbumsController {
 
-  @GetMapping
-  public ResponseEntity<List<String>> getJpegFiles() throws IOException {
+  public ResponseEntity<List<String>> getAlbums() throws IOException {
     List<String> jpegFilesBase64 = new ArrayList<>();
     ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
     Resource[] resources = resolver.getResources("classpath*:storage/albums/*.jpeg");
 
     for (Resource res : resources) {
       try (InputStream in = res.getInputStream()) {
-        byte[] fileBytes = IOUtils.toByteArray(in); // Using Apache Commons IO
+        byte[] fileBytes = IOUtils.toByteArray(in);
         String base64Encoded = Base64.getEncoder().encodeToString(fileBytes);
         jpegFilesBase64.add(base64Encoded);
       } catch (IOException e) {
-        e.printStackTrace();
+        throw e;
       }
     }
-
     return ResponseEntity.ok(jpegFilesBase64);
   }
+
+  @GetMapping("/list")
+  public ResponseEntity<List<String>> getAlbumList() throws IOException {
+    List<String> albumList = new ArrayList<>();
+    ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+    Resource[] resources = resolver.getResources("classpath*:storage/albums/*.jpeg");
+
+    for (Resource res : resources) {
+      String fileName = res.getFilename();
+      albumList.add(fileName);
+    }
+    return ResponseEntity.ok(albumList);
+  }  
 
 }

@@ -13,7 +13,7 @@ public class WelcomeController {
 
     @GetMapping("/iamlive")
     public ResponseEntity<Boolean> iamlive() {
-        LOGGER.info("invoked/exit: iamlive");
+        LOGGER.info("iamlive");
         return ResponseEntity.ok(Boolean.TRUE);
     }
     
