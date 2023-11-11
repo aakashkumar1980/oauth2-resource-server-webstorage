@@ -39,6 +39,21 @@ public class AlbumsController {
     return ResponseEntity.ok(jpegFilesBase64);
   }
 
+  @GetMapping("/count")
+  @PreAuthorize("hasAuthority('SCOPE_albums:count')")
+  public ResponseEntity<Integer> getAlbumsCount() throws IOException {
+    List<String> albumList = new ArrayList<>();
+    ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+    Resource[] resources = resolver.getResources("classpath*:storage/albums/*.jpeg");
+
+    for (Resource res : resources) {
+      String fileName = res.getFilename();
+      albumList.add(fileName);
+    }
+    return ResponseEntity.ok(resources.length);
+  } 
+
+
   @GetMapping("/list")
   public ResponseEntity<List<String>> getAlbumList() throws IOException {
     List<String> albumList = new ArrayList<>();
