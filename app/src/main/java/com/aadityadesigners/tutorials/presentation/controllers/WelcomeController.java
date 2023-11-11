@@ -8,7 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @RestController
-@RequestMapping("/api/public")
+@RequestMapping("/public/api")
 public class WelcomeController {
     
     private static final Logger LOGGER = LogManager.getLogger(WelcomeController.class);

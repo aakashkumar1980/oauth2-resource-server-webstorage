@@ -99,13 +99,33 @@
 		
 		<!-- ################################ -->
 		<!-- ### SPRING SECURITY + OAuth2 ### -->
-		<!-- ################################ -->		
-		<Logger name="org.springframework.security" level="TRACE" additivity="false">
+		<!-- ################################ -->	
+		<Logger name="org.springframework.web.client.RestTemplate" level="DEBUG" additivity="false">
 			<AppenderRef ref="Console" />
 		</Logger>
-		<Logger name="com.nimbusds" level="TRACE" additivity="false">
+
+		<Logger name="org.springframework.security.web.FilterChainProxy" level="DEBUG" additivity="false">
 			<AppenderRef ref="Console" />
-		</Logger>				
+		</Logger>
+		<Logger name="org.springframework.security.web.access.ExceptionTranslationFilter " level="TRACE" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Logger name="org.springframework.security.authorization.method.AuthorizationManagerBeforeMethodInterceptor" level="DEBUG" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Logger name="org.springframework.security.oauth2.jwt.NimbusJwtDecoder" level="TRACE" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+		<Logger name="org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationProvider" level="DEBUG" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>		
+		<Logger name="org.springframework.security.oauth2.server.resource.authentication.JwtGrantedAuthoritiesConverter" level="TRACE" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>			
+		<Logger name="org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter" level="TRACE" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+	
 	
 
 		<!-- ################### -->

@@ -2,9 +2,6 @@ package com.aadityadesigners.tutorials.bootstrap;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -16,9 +13,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled = true)
-@PropertySources({
-    @PropertySource(value = "classpath:security-oauth2.yml", factory = YamlPropertyLoaderFactory.class)
-})
 public class OAuth2SecurityConfig {
 
   // Configure security filter chain
@@ -27,7 +21,7 @@ public class OAuth2SecurityConfig {
     http
       .authorizeHttpRequests(request -> request
         .requestMatchers("/api/**").authenticated()
-        .requestMatchers("/api/public/**").permitAll()
+        .requestMatchers("/public/api/**").permitAll()
         .anyRequest().authenticated()
       ) 
       .oauth2ResourceServer(oauth2 -> oauth2

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # NOTE: Please copy the 'code' from the callback URL i.e. http://localhost/oauth2/callback?code=...
-AUTHORIZATION_CODE="Y28_47E4CLuX7lIOB2t11LeDnqPIZ15bB6Ju9swQhyiH9"
+AUTHORIZATION_CODE=""
 source application.properties
 
 curl --request POST \
