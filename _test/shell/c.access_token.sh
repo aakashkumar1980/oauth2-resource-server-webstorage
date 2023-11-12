@@ -13,9 +13,10 @@ case $AUTH_SERVER_CHOICE in
 esac
 echo ""
 
+echo "client_id=${client_id} | client_secret=${client_secret} | audience=${audience} | scope=${scope} | callback_uri=${callback_uri} | code_verifier=${code_verifier}"
 # NOTE: Please copy the 'code' from the previous step of callback URL i.e. http://localhost/oauth2/callback?code=...
 AUTHORIZATION_CODE=""
-curl --request POST \
+curl -request POST \
   --url "${token_url}" \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data-urlencode "grant_type=authorization_code" \
@@ -26,8 +27,4 @@ curl --request POST \
   --data-urlencode "redirect_uri=${callback_uri}" \
   --data-urlencode "code_verifier=${code_verifier}" \
   --data-urlencode "code=${AUTHORIZATION_CODE}"
-
-
-
-
 
