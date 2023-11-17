@@ -3,7 +3,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          #issuer-uri: https://dev-q4sy1yot76nvjjq1.us.auth0.com/
-          issuer-uri: https://cognito-idp.ap-south-1.amazonaws.com/ap-south-1_VjPdI7DeH
+          #issuer-uri: https://$DOMAIN.us.auth0.com/
+          issuer-uri: https://cognito-idp.$REGION.amazonaws.com/$USER_POOL_ID
           audience: albums-identifier
 

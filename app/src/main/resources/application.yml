@@ -1,7 +1,6 @@
 server:
   #port: 8080 
   servlet.context-path: /app
-  tomcat.max-http-header-size: 16384
 logging.config: classpath:log4j2.xml   
 
 spring:
