@@ -14,8 +14,13 @@ spring:
     vault:
       kv:
         enabled: true
+        backend: secret
+        default-context: springboot_template/common
+        profile-separator: '/'
+        application-name: springboot_template
+
+      ## Get the value from "apps-configs/environment_setup-dev/docker-compose-up.sh"  
       authentication: APPROLE
-      ## Get the value from "apps-configs/environment_setup-dev/docker-compose-up.sh"
       app-role:
         role-id: ${VAULT_ROLE_ID}
         secret-id: ${VAULT_SECRET_ID}    

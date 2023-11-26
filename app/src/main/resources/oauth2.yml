@@ -1,9 +1,0 @@
-spring:
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          #issuer-uri: https://$DOMAIN.us.auth0.com/
-          issuer-uri: https://cognito-idp.$REGION.amazonaws.com/$USER_POOL_ID
-          audience: albums-identifier
-
