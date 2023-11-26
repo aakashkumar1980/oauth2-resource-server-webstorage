@@ -6,11 +6,13 @@ echo "2) AWS Cognito"
 read -p "Enter your choice [1-2]: " choice
 case $choice in
   1) 
-    echo "loading application-auth0.properties file"
+    echo "loading application-auth0.properties files"
+    source ../application-auth0.properties
     source application-auth0.properties
     ;;
   2) 
-    echo "loading application-awscognito.properties file"
+    echo "loading application-awscognito.properties files"
+    source ../application-awscognito.properties
     source application-awscognito.properties
     ;;
   *)
@@ -19,12 +21,12 @@ case $choice in
     ;;
 esac
 # append to application.properties file so that it can be used in the next step
-sed -i "s/^AUTH_SERVER_CHOICE=.*/AUTH_SERVER_CHOICE=$choice/" application.properties
+sed -i "s/^AUTH_SERVER_CHOICE=.*/AUTH_SERVER_CHOICE=$choice/" ../application.properties
 echo ""
 
 
 echo "Please login to the Auth0 server to get the authorization code. Manually copy the code and save it for the next step."
-source application.properties
+source ../application.properties
 AUTH_URL="$(echo ${auth_url}\
 'response_type=code&'\
 'client_id='${client_id}'&'\

@@ -1,13 +1,15 @@
 #!/bin/bash
 
-source application.properties
+source ../application.properties
 case $AUTH_SERVER_CHOICE in
   1) 
     echo "loading application-auth0.properties file"
+    source ../application-auth0.properties
     source application-auth0.properties
     ;;
   2) 
     echo "loading application-awscognito.properties file"
+    source ../application-awscognito.properties
     source application-awscognito.properties
     ;;
 esac

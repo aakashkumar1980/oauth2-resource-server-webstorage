@@ -1,5 +1,5 @@
 {
-  "COMMAND_LINE": "env-cmd -f .env ./gradlew bootRun",
+  "COMMAND_LINE": "export SPRING_PROFILES_ACTIVE=auth0|cognito && env-cmd -f .env ./gradlew bootRun",
   
   "configurations": [
     {
