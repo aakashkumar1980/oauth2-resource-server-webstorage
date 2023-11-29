@@ -16,8 +16,8 @@ esac
 echo ""
 
 # NOTE: Please copy the 'code' from the previous step of callback URL i.e. http://localhost/oauth2/callback?code=...
-echo "token_url=${token_url} | client_id=${client_id} | client_secret=${client_secret} | redirect_uri=${callback_uri} | code=${AUTHORIZATION_CODE} | code_verifier=${code_verifier}"
 AUTHORIZATION_CODE=""
+echo "token_url=${token_url} | client_id=${client_id} | client_secret=${client_secret} | redirect_uri=${callback_uri} | code=${AUTHORIZATION_CODE} | code_verifier=${code_verifier}"
 curl --request POST \
   --url "${token_url}" \
   --header 'content-type: application/x-www-form-urlencoded' \
