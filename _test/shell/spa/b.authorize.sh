@@ -30,11 +30,11 @@ source ../application.properties
 AUTH_URL="$(echo ${auth_url}\
 'response_type=code&'\
 'client_id='${client_id}'&'\
+'redirect_uri='${callback_uri}'&'\
 'audience='${audience}'&'\
 'scope='${scope}'&'\
 'code_challenge='${code_challenge}'&'\
-'code_challenge_method=S256&'\
-'redirect_uri='${callback_uri})"
+'code_challenge_method=S256')"
 
 echo "AUTH_URL: ${AUTH_URL}"
 xdg-open "${AUTH_URL}" &

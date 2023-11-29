@@ -15,8 +15,8 @@ case $AUTH_SERVER_CHOICE in
 esac
 echo ""
 
-echo "client_id=${client_id} | client_secret=${client_secret} | audience=${audience} | scope=${scope} | callback_uri=${callback_uri} | code_verifier=${code_verifier}"
 # NOTE: Please copy the 'code' from the previous step of callback URL i.e. http://localhost/oauth2/callback?code=...
+echo "token_url=${token_url} | client_id=${client_id} | client_secret=${client_secret} | redirect_uri=${callback_uri} | code=${AUTHORIZATION_CODE} | code_verifier=${code_verifier}"
 AUTHORIZATION_CODE=""
 curl --request POST \
   --url "${token_url}" \
@@ -25,6 +25,6 @@ curl --request POST \
   --data-urlencode "client_id=${client_id}" \
   --data-urlencode "client_secret=${client_secret}" \
   --data-urlencode "redirect_uri=${callback_uri}" \
-  --data-urlencode "code_verifier=${code_verifier}" \
-  --data-urlencode "code=${AUTHORIZATION_CODE}"
+  --data-urlencode "code=${AUTHORIZATION_CODE}" \
+  --data-urlencode "code_verifier=${code_verifier}"
 
