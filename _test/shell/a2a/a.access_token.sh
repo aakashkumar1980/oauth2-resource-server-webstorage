@@ -25,16 +25,11 @@ esac
 sed -i "s/^AUTH_SERVER_CHOICE=.*/AUTH_SERVER_CHOICE=$choice/" ../application.properties
 echo ""
 
+echo "token_url=${token_url} | client_id=${client_id} | client_secret=${client_secret} | audience=${audience}"
+curl --request POST \
+  --url "${token_url}" \
+  --data-urlencode "grant_type=client_credentials" \
+  --data-urlencode "client_id=${client_id}" \
+  --data-urlencode "client_secret=${client_secret}" \
+  --data-urlencode "audience=${audience}"
 
-echo "Please login to the Auth0 server to get the authorization code. Manually copy the code and save it for the next step."
-AUTH_URL="$(echo ${auth_url}\
-'response_type=code&'\
-'client_id='${client_id}'&'\
-'redirect_uri='${callback_uri}'&'\
-'audience='${audience}'&'\
-'scope='${scope}'&'\
-'code_challenge='${code_challenge}'&'\
-'code_challenge_method=S256')"
-
-echo "AUTH_URL: ${AUTH_URL}"
-xdg-open "${AUTH_URL}" &

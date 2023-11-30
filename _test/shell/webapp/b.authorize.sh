@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source ../application.properties
 echo "Please select the Authorization Server from the below options:"
 echo "1) Auth0"
 echo "2) AWS Cognito"
@@ -26,7 +27,6 @@ echo ""
 
 
 echo "Please login to the Auth0 server to get the authorization code. Manually copy the code and save it for the next step."
-source ../application.properties
 AUTH_URL="$(echo ${auth_url}\
 'response_type=code&'\
 'client_id='${client_id}'&'\
