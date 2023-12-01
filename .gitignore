@@ -34,3 +34,7 @@ gradle.properties
 gradlew
 gradlew.bat
 settings.gradle
+
+**/node_modules/
+package-lock.json
+
